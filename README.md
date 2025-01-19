@@ -3,6 +3,7 @@
 ChatBot using Gemini 1.5-flash
 
 **WARNING!**
+
 YOU SHOULDN'T DEPLOY THE PROJECT WITHOUT HIDING THE API KEY THROUGH `.ENV` OR ANY OTHER WAY. PLEASE DO NOT DEPLOY FOR PUBLIC USE BEFORE ENSURING THIS. THIS IS ONLY FOR TESTING AND DEVELOPMENT.
 
 This is a simple chatbot application that uses the Google Cloud API to generate responses. The chatbot allows users to send messages and upload images, and it responds with generated text content.
