@@ -41,7 +41,7 @@ fileInput.addEventListener("change", () => {
 });
 
 // API Key for the Google Cloud API
-const GOOGLE_API_KEY = ""; // Replace with your API key
+const GOOGLE_API_KEY = "YOUR_API_KEY_HERE"; // Replace with your API key
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GOOGLE_API_KEY}`;
 
 const userData = {
