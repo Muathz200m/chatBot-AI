@@ -1,0 +1,261 @@
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+#chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 2em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+#chatbot-toggler span {
+  color: #ddd;
+  position: absolute;
+}
+
+body.show-chatbot #chatbot-toggler {
+  transform: rotate(90deg);
+}
+
+body.show-chatbot #chatbot-toggler span:first-child,
+#chatbot-toggler span:last-child {
+  opacity: 0;
+}
+
+body.show-chatbot #chatbot-toggler span:last-child {
+  opacity: 1;
+}
+
+.chatbot-popup {
+  width: 90%;
+  max-width: 400px;
+  height: 70%;
+  max-height: 600px;
+  position: fixed;
+  bottom: 99px;
+  right: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: scale(0.2);
+  transform-origin: bottom right;
+}
+
+body.show-chatbot .chatbot-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+}
+
+.header-info svg {
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: #3d3b3b transparent;
+  min-height: 350px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.user-message {
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.message-text {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e1f5fe;
+  margin: 5px;
+  word-wrap: break-word;
+}
+
+.user-message .message-text {
+  background-color: #d1c4e9;
+  margin-right: 10px;
+}
+
+.chat-body .user-message .attachment {
+  width: 50%;
+}
+
+.chat-footer {
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.chat-form {
+  display: flex;
+  align-items: center;
+}
+
+.chat-form .file-upload-wrapper {
+  height: 26px;
+  width: 36px;
+  position: relative;
+}
+
+.chat-form .file-upload-wrapper img {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chat-form .file-upload-wrapper :where(img, #file-cancel),
+.chat-form .file-upload-wrapper.file-uploaded #file-upload {
+  display: none;
+}
+
+.chat-form .file-upload-wrapper.file-uploaded img,
+.chat-form .file-upload-wrapper.file-uploaded:hover #file-cancel {
+  display: block;
+}
+
+.chat-form .file-upload-wrapper :where(img, button) {
+  position: absolute;
+}
+
+.chat-form .file-upload-wrapper #file-cancel {
+  color: red;
+  background: white;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+.chat-controls {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.chat-controls button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1.5em;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-controls button:hover {
+  color: #0056b3;
+}
+
+.thinking-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thinking-indicator .dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background-color: #007bff;
+  border-radius: 50%;
+  animation: jump 1s infinite;
+}
+
+.thinking-indicator .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-indicator .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes jump {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.bot-message svg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #007bffb9;
+  padding: 5px;
+}
